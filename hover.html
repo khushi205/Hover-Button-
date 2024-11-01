@@ -1,0 +1,104 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+  
+    <title>button effect</title>
+    <style>
+   
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+:root{
+    --x: 45deg
+}
+body{
+    background-color:black ;/*rgba(30, 188, 255, 0.486) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    
+    
+}
+
+a{
+    /* border: 1px solid red; */
+    position: relative;
+    width: 200px;
+    height: 80px;
+    border-radius: 8px;
+    margin: 50px;
+}
+ .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(var(--x),blue,pink,pink,blue );/* red, black, black, blue */
+}
+
+.two{
+    filter: blur(12px);
+}
+
+.button{
+    position: absolute;
+    border: 1px solid cornflowerblue ;/*black*/
+    top: 2px;
+    right: 2px;
+    left: 2px;
+    bottom: 2px;
+    background-color:deepskyblue ;/*rgba(0, 0, 0, 0.299) & deepskyblue*/
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    overflow: hidden;
+    
+}
+.button::before{
+    content: "";
+    position: absolute;
+    color: white;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255, 255, 255, 0.587) ;/*cornflowerblue & rgba(255, 255, 255, 0.087)*/
+    transform: skew(30deg);
+   
+}
+
+    </style>
+</head>
+<body>
+
+    <a href="#">
+        <span class="back one"></span>
+        <span class="back two"></span>
+        <span class="button">BUTTON</span>
+    </a>
+
+
+    <script>
+
+let a = document.querySelector('a')
+
+
+
+    a.addEventListener('mousemove', move =>{
+        let x = move.clientX * 2.5;
+        a.style.setProperty('--x', x + 'deg');
+   })
+    </script>
+</body>
+</html>
